@@ -1,4 +1,9 @@
-spring.datasource.url: jdbc:h2:file:./camunda-h2-database
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/codecrafters_db
+    username: cc
+    password: cc155
+  jpa.hibernate.ddl-auto: create
 
 camunda.bpm.admin-user:
   id: demo
