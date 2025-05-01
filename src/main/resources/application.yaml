@@ -3,14 +3,21 @@ spring:
     url: jdbc:postgresql://localhost:5432/codecrafters_db
     username: cc
     password: cc155
-  jpa.hibernate.ddl-auto: create
-
-camunda.bpm.admin-user:
-  id: demo
-  password: demo
+  jpa.hibernate.ddl-auto: update
 
 camunda:
   bpm:
+    database:
+      schema-update: false
+      schema-name: camunda_schema # Tabellen erstellen geht nur in public -> Verschieben mit SQL siehe Anschluss
+      table-prefix: camunda_schema.
+    admin-user:
+      id: demo
+      password: demo
     generic-properties:
       properties:
         historyTimeToLive: 5
+
+#SELECT 'ALTER TABLE public."' || table_name || '" SET SCHEMA camunda_schema;'
+#FROM information_schema.tables
+#WHERE table_name LIKE 'act%' AND table_schema = 'public';
