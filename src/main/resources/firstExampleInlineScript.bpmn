@@ -12,7 +12,9 @@
     <bpmn:scriptTask id="Activity_0kbxjql" name="print message" scriptFormat="JavaScript">
       <bpmn:incoming>Flow_0cqkqwq</bpmn:incoming>
       <bpmn:outgoing>Flow_1yzpzxz</bpmn:outgoing>
-      <bpmn:script>print('Hello, this is coming from BPMN')</bpmn:script>
+      <bpmn:script>print('Hello, this is coming from BPMN')
+print('Variable global scope, can be accessed direct: ' + itemName) 
+print('or by execution.getVariable("itemName") ' + execution.getVariable('itemName'))</bpmn:script>
     </bpmn:scriptTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">

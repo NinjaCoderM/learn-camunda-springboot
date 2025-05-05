@@ -18,6 +18,7 @@ public class HomeController {
     public String execute(){
         ProcessEngine engine = ProcessEngines.getDefaultProcessEngine();
         ProcessInstantiationBuilder instance = engine.getRuntimeService().createProcessInstanceByKey("first_bpmn_execute");
+        instance.setVariable("itemName", "Computer");
         instance.executeWithVariablesInReturn();
 
         return "BPMN has executed";
