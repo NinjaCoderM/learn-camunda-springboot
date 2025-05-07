@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0o4cvrr" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.34.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.23.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0o4cvrr" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.34.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.23.0">
   <bpmn:process id="first_bpmn_execute" name="first_bpmn_execute" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_0cqkqwq</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:endEvent id="Event_0stcekf">
-      <bpmn:incoming>Flow_1yzpzxz</bpmn:incoming>
+      <bpmn:incoming>Flow_0eqoobe</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_0cqkqwq" sourceRef="StartEvent_1" targetRef="Activity_0kbxjql" />
-    <bpmn:sequenceFlow id="Flow_1yzpzxz" sourceRef="Activity_0kbxjql" targetRef="Event_0stcekf" />
+    <bpmn:sequenceFlow id="Flow_1yzpzxz" sourceRef="Activity_0kbxjql" targetRef="Activity_1ep75b2" />
     <bpmn:scriptTask id="Activity_0kbxjql" name="print message" scriptFormat="JavaScript">
       <bpmn:incoming>Flow_0cqkqwq</bpmn:incoming>
       <bpmn:outgoing>Flow_1yzpzxz</bpmn:outgoing>
@@ -17,17 +17,25 @@ print('Variable global scope, can be accessed direct: ' + itemName)
 print('or by execution.getVariable("itemName") ' + execution.getVariable('itemName'))
 print('BusinessKey: ' + execution.processBusinessKey)</bpmn:script>
     </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="Flow_0eqoobe" sourceRef="Activity_1ep75b2" targetRef="Event_0stcekf" />
+    <bpmn:scriptTask id="Activity_1ep75b2" scriptFormat="JavaScript" camunda:resource="useExternalResource.js">
+      <bpmn:incoming>Flow_1yzpzxz</bpmn:incoming>
+      <bpmn:outgoing>Flow_0eqoobe</bpmn:outgoing>
+    </bpmn:scriptTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="first_bpmn_execute">
       <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="182" y="102" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0stcekf_di" bpmnElement="Event_0stcekf">
-        <dc:Bounds x="432" y="102" width="36" height="36" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_05i3zpy_di" bpmnElement="Activity_0kbxjql">
         <dc:Bounds x="270" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0stcekf_di" bpmnElement="Event_0stcekf">
+        <dc:Bounds x="642" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_07bm1yz_di" bpmnElement="Activity_1ep75b2">
+        <dc:Bounds x="460" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0cqkqwq_di" bpmnElement="Flow_0cqkqwq">
         <di:waypoint x="218" y="120" />
@@ -35,7 +43,11 @@ print('BusinessKey: ' + execution.processBusinessKey)</bpmn:script>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1yzpzxz_di" bpmnElement="Flow_1yzpzxz">
         <di:waypoint x="370" y="120" />
-        <di:waypoint x="432" y="120" />
+        <di:waypoint x="460" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0eqoobe_di" bpmnElement="Flow_0eqoobe">
+        <di:waypoint x="560" y="120" />
+        <di:waypoint x="642" y="120" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
