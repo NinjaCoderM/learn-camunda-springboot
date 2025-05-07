@@ -14,7 +14,8 @@
       <bpmn:outgoing>Flow_1yzpzxz</bpmn:outgoing>
       <bpmn:script>print('Hello, this is coming from BPMN')
 print('Variable global scope, can be accessed direct: ' + itemName) 
-print('or by execution.getVariable("itemName") ' + execution.getVariable('itemName'))</bpmn:script>
+print('or by execution.getVariable("itemName") ' + execution.getVariable('itemName'))
+print('BusinessKey: ' + execution.processBusinessKey)</bpmn:script>
     </bpmn:scriptTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
