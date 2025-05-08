@@ -28,6 +28,8 @@ obj
 print('Variable global scope, can be accessed direct: ' + itemName) 
 print('or by execution.getVariable("itemName") ' + execution.getVariable('itemName'))
 print('BusinessKey: ' + execution.processBusinessKey)
+execution.setVariable('resultObj3', 
+{id: 3, name:"Roi3" })
 var obj = {
 id: 1, 
 name: "Roi"
