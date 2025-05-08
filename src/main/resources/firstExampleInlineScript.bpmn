@@ -12,6 +12,13 @@
     <bpmn:scriptTask id="Activity_0kbxjql" name="print message" scriptFormat="JavaScript" camunda:resultVariable="resultObj">
       <bpmn:extensionElements>
         <camunda:inputOutput>
+          <camunda:inputParameter name="inputObj1">
+            <camunda:script scriptFormat="JavaScript">var obj = {
+id: 1, 
+name: "Input1"
+}
+obj</camunda:script>
+          </camunda:inputParameter>
           <camunda:outputParameter name="resultObj2">
             <camunda:script scriptFormat="JavaScript">var obj = {
 id: 2, 
@@ -30,6 +37,7 @@ print('or by execution.getVariable("itemName") ' + execution.getVariable('itemNa
 print('BusinessKey: ' + execution.processBusinessKey)
 execution.setVariable('resultObj3', 
 {id: 3, name:"Roi3" })
+print(JSON.stringify(inputObj1))
 var obj = {
 id: 1, 
 name: "Roi"
