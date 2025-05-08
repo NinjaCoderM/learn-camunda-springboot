@@ -10,6 +10,18 @@
     <bpmn:sequenceFlow id="Flow_0cqkqwq" sourceRef="StartEvent_1" targetRef="Activity_0kbxjql" />
     <bpmn:sequenceFlow id="Flow_1yzpzxz" sourceRef="Activity_0kbxjql" targetRef="Activity_1ep75b2" />
     <bpmn:scriptTask id="Activity_0kbxjql" name="print message" scriptFormat="JavaScript" camunda:resultVariable="resultObj">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="resultObj2">
+            <camunda:script scriptFormat="JavaScript">var obj = {
+id: 2, 
+name: "Roi2"
+}
+obj
+</camunda:script>
+          </camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_0cqkqwq</bpmn:incoming>
       <bpmn:outgoing>Flow_1yzpzxz</bpmn:outgoing>
       <bpmn:script>print('Hello, this is coming from BPMN')
