@@ -5,7 +5,7 @@
       <bpmn:outgoing>Flow_0cqkqwq</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:endEvent id="Event_0stcekf">
-      <bpmn:incoming>Flow_0gd69vy</bpmn:incoming>
+      <bpmn:incoming>Flow_04zki9o</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_0cqkqwq" sourceRef="StartEvent_1" targetRef="Activity_0kbxjql" />
     <bpmn:sequenceFlow id="Flow_1yzpzxz" sourceRef="Activity_0kbxjql" targetRef="Activity_1ep75b2" />
@@ -50,17 +50,23 @@ obj
       <bpmn:incoming>Flow_1yzpzxz</bpmn:incoming>
       <bpmn:outgoing>Flow_0eqoobe</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:sequenceFlow id="Flow_0gd69vy" sourceRef="Activity_0wuldld" targetRef="Event_0stcekf" />
+    <bpmn:sequenceFlow id="Flow_0gd69vy" sourceRef="Activity_0wuldld" targetRef="Activity_08qieg7" />
     <bpmn:serviceTask id="Activity_0wuldld" name="Java Delegate Example" camunda:class="at.codecrafters.camunda.javaDelegate.JavaDelegateExample">
       <bpmn:extensionElements>
         <camunda:inputOutput>
           <camunda:outputParameter name="outputVal">
-            <camunda:script scriptFormat="JavaScript">print('Test Output Script JavaScript InlineScript ' + outputVal)</camunda:script>
+            <camunda:script scriptFormat="JavaScript">print('Test Output Script JavaScript InlineScript ' + outputVal)
+outputVal</camunda:script>
           </camunda:outputParameter>
         </camunda:inputOutput>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0eqoobe</bpmn:incoming>
       <bpmn:outgoing>Flow_0gd69vy</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_04zki9o" sourceRef="Activity_08qieg7" targetRef="Event_0stcekf" />
+    <bpmn:serviceTask id="Activity_08qieg7" name="Java Delegate Expression" camunda:delegateExpression="${javaDelegateExpressionExample}">
+      <bpmn:incoming>Flow_0gd69vy</bpmn:incoming>
+      <bpmn:outgoing>Flow_04zki9o</bpmn:outgoing>
     </bpmn:serviceTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -74,12 +80,15 @@ obj
       <bpmndi:BPMNShape id="Activity_07bm1yz_di" bpmnElement="Activity_1ep75b2">
         <dc:Bounds x="460" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0stcekf_di" bpmnElement="Event_0stcekf">
-        <dc:Bounds x="822" y="102" width="36" height="36" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_06hq88g_di" bpmnElement="Activity_0wuldld">
         <dc:Bounds x="640" y="80" width="100" height="80" />
         <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0stcekf_di" bpmnElement="Event_0stcekf">
+        <dc:Bounds x="972" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1c0hkmq_di" bpmnElement="Activity_08qieg7">
+        <dc:Bounds x="810" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0cqkqwq_di" bpmnElement="Flow_0cqkqwq">
         <di:waypoint x="218" y="120" />
@@ -95,7 +104,11 @@ obj
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0gd69vy_di" bpmnElement="Flow_0gd69vy">
         <di:waypoint x="740" y="120" />
-        <di:waypoint x="822" y="120" />
+        <di:waypoint x="810" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04zki9o_di" bpmnElement="Flow_04zki9o">
+        <di:waypoint x="910" y="120" />
+        <di:waypoint x="972" y="120" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
