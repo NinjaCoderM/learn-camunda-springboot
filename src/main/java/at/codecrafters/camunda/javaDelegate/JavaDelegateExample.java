@@ -8,5 +8,6 @@ public class JavaDelegateExample implements JavaDelegate {
     public void execute(DelegateExecution delegateExecution) throws Exception {
         System.out.println("Comming From JavaDelegateExample");
         System.out.println("Input: " + delegateExecution.getVariable("inputVal"));
+        delegateExecution.setVariable("outputVal", "... Lauf Forest Gump ...");
     }
 }

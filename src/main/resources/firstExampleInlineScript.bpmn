@@ -52,6 +52,13 @@ obj
     </bpmn:scriptTask>
     <bpmn:sequenceFlow id="Flow_0gd69vy" sourceRef="Activity_0wuldld" targetRef="Event_0stcekf" />
     <bpmn:serviceTask id="Activity_0wuldld" name="Java Delegate Example" camunda:class="at.codecrafters.camunda.javaDelegate.JavaDelegateExample">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="outputVal">
+            <camunda:script scriptFormat="JavaScript">print('Test Output Script JavaScript InlineScript ' + outputVal)</camunda:script>
+          </camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_0eqoobe</bpmn:incoming>
       <bpmn:outgoing>Flow_0gd69vy</bpmn:outgoing>
     </bpmn:serviceTask>
