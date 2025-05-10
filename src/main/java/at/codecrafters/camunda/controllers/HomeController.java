@@ -21,6 +21,7 @@ public class HomeController {
         ProcessEngine engine = ProcessEngines.getDefaultProcessEngine();
         ProcessInstantiationBuilder instance = engine.getRuntimeService().createProcessInstanceByKey("first_bpmn_execute");
         instance.setVariable("itemName", "Computer");
+        instance.setVariable("inputVal", "comming from start instance");
         instance.businessKey(UUID.randomUUID().toString());
         instance.executeWithVariablesInReturn();
 

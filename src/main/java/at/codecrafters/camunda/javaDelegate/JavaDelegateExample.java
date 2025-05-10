@@ -7,5 +7,6 @@ public class JavaDelegateExample implements JavaDelegate {
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
         System.out.println("Comming From JavaDelegateExample");
+        System.out.println("Input: " + delegateExecution.getVariable("inputVal"));
     }
 }
