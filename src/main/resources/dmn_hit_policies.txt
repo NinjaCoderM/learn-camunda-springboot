@@ -1,0 +1,6 @@
+Hit Policy	        Verhalten
+Unique (U)	        Nur eine Regel darf zutreffen
+Any (A)	            Mehrere Regeln dürfen zutreffen, müssen aber gleiches Ergebnis liefern
+Priority (P)	    Nur eine Regel wird gewählt, mit höchster Priorität (definiert durch Ergebnisrangfolge)
+First (F)	        Nur erste zutreffende Regel wird verwendet (Reihenfolge zählt)
+Rule Order (RO)	    Alle zutreffenden Regeln, in der definierten Reihenfolge
